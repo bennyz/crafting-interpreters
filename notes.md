@@ -1,5 +1,11 @@
 # Chapter 4 - Scanning
 
+## Notes
+
+(Maximal Munch)[https://en.wikipedia.org/wiki/Maximal_munch] when creating a construct, the most possible input should be consumed (greediness in regex for example).
+
+## Questions
+
 > The lexical grammars of Python and Haskell are not regular. What does that mean, and why aren’t they?
 They are not recognizable by a finite automaton. Python for example has to keep track of white-spaces.
 
@@ -15,5 +21,6 @@ Soon
 > Add support to Lox’s scanner for C-style /* ... */ block comments. Make sure to handle newlines in them. Consider allowing them to nest. Is adding support for nesting more work than you expected? Why?
 
 Soon
+
 
 
