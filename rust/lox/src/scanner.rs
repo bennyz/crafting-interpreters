@@ -50,7 +50,6 @@ impl Scanner {
         while !self.is_at_end() {
             self.start = self.current;
             self.scan_token()?;
-            println!("scan token, start {}, current {}", self.start, self.current);
         }
 
         self.tokens
@@ -61,7 +60,6 @@ impl Scanner {
 
     fn scan_token(&mut self) -> Result<()> {
         let c = self.advance().unwrap();
-        println!("char c {:?}", c);
 
         match c {
             ')' => self.add_token(TokenType::LeftParen),
@@ -141,19 +139,12 @@ impl Scanner {
     }
 
     fn identifier(&mut self) {
-        println!("identifier!");
         // Alphanumeric, as variables may start with a letter and continue with digits.
         while self.peek().is_ascii_alphanumeric() {
-            println!(
-                "alpha num, self.peek() {}, is alphanum {}",
-                self.peek(),
-                self.peek().is_ascii_alphanumeric()
-            );
             self.advance();
         }
 
         let val = &self.source[self.start as usize..self.current as usize];
-        println!("val {}", val);
         match KEYWORDS.get(val) {
             Some(token_type) => {
                 self.add_token(token_type.clone());
@@ -257,7 +248,7 @@ impl Scanner {
     fn add_token_literal(&mut self, token_type: TokenType, literal: Option<Literal>) {
         let text = &self.source[self.start as usize..self.current as usize];
         self.tokens
-            .push(Token::new(token_type, text, literal, self.line))
+            .push(Token::new(token_type, text, literal, self.line));
     }
 
     fn is_at_end(&self) -> bool {
