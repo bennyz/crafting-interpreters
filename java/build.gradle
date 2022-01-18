@@ -7,7 +7,7 @@
 
 
 plugins {
-    id 'application' 
+    id 'application'
 }
 
 repositories {
@@ -18,5 +18,5 @@ dependencies {
 }
 
 application {
-    mainClass = 'com.craftinginterpreters.lox.Lox' 
+    mainClassName = project.findProperty("chooseMain").toString()
 }

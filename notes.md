@@ -24,4 +24,11 @@ Soon
 Soon
 
 
+# Chaper 5 - Representing Code
+
+To run the AST generator tool with gradle:
+
+```shell
+$ gradle run -PchooseMain=com.craftinginterpreters.tool.GenerateAst --args=<output dir>
+```
 
